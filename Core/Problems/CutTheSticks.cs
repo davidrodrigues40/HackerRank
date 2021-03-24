@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,9 +11,7 @@ namespace Core.Problems
         public List<int> output = new List<int>();
         public void DoWork(object input)
         {
-            var strArray = input.ToString().Split(' ');
-
-            sticks = strArray.Select<string, int>(int.Parse).ToArray();
+            sticks = input.GetIntArray(' ');
 
             output.Add(sticks.Count());
 
@@ -25,20 +24,20 @@ namespace Core.Problems
         {
             while (sticks.Length > 1)
             {
-                var shortest = PerformCut();
+                PerformCut(out int shortest);
                 SubtractShortest(shortest);
             }
         }
 
-        private int PerformCut()
+        private void PerformCut(out int shortest)
         {
-            var shortest = sticks.Min();
-            List<int> cutSticks = sticks.Where(i => i == shortest).ToList();
+            var found = sticks.Min();
+            List<int> cutSticks = sticks.Where(i => i == found).ToList();
 
             sticks = sticks.Where(s => !cutSticks.Contains(s)).ToArray();
             if (sticks.Count() > 0) output.Add(sticks.Count());
 
-            return shortest;
+            shortest = found;
         }
 
         private void SubtractShortest(int cutPiece)

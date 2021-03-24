@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Helpers;
+using System;
 
 namespace Core.Problems
 {
@@ -6,14 +7,13 @@ namespace Core.Problems
     {
         public void DoWork(object input)
         {
-            var helper = new Helper();
 
             int n = int.Parse((string)input);
             int output = 0;
 
-            var digits = helper.GetDigits(n);
+            var digits = n.GetDigits();
 
-            foreach(int c in digits)
+            foreach (int c in digits)
             {
                 if (c != 0 && n % c == 0)
                     output++;
