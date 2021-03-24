@@ -7,7 +7,7 @@ namespace ConsoleApp
 {
     class Program
     {
-        private static readonly string[] _args = { "AppendAndDelete", "aaaaaaaaaa aaaaa 7" };
+        private static readonly string[] _args = { "CutTheSticks", "8 8 14 10 3 5 14 12" };
         static void Main(string[] args)
         {
             var parser = new ArgParser();
@@ -23,6 +23,7 @@ namespace ConsoleApp
             IWorker worker = (IWorker)factory.GetWorker(parameters.Problem);
             worker.DoWork(parameters.Input);
 
+            Console.WriteLine("Press any key to quit");
             Console.ReadKey();
         }
     }

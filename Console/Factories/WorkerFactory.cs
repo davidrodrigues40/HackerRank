@@ -11,7 +11,8 @@ namespace ConsoleApp.Factories
         TimeConversion,
         FindDigits,
         ExtraLongFactorials,
-        AppendAndDelete
+        AppendAndDelete,
+        CutTheSticks
     }
     public class WorkerFactory
     {
