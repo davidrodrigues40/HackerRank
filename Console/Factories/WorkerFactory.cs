@@ -12,7 +12,8 @@ namespace ConsoleApp.Factories
         FindDigits,
         ExtraLongFactorials,
         AppendAndDelete,
-        CutTheSticks
+        CutTheSticks,
+        GradingStudents
     }
     public class WorkerFactory
     {

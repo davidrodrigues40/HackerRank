@@ -17,11 +17,18 @@ namespace Core.Helpers
             return list;
         }
 
-        public static int[] GetIntArray(this object input, char separator)
+        public static int[] ToIntArray(this object input, char separator)
         {
-            var strArray = input.ToString().Split(' ');
+            var strArray = input.ToString().Split(separator);
 
             return strArray.Select(int.Parse).ToArray();
+        }
+
+        public static List<int> ToIntList(this object input, char separator)
+        {
+            var strArray = input.ToString().Split(separator);
+
+            return strArray.Select(int.Parse).ToList();
         }
     }
 }

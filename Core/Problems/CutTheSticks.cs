@@ -11,7 +11,7 @@ namespace Core.Problems
         public List<int> output = new List<int>();
         public void DoWork(object input)
         {
-            sticks = input.GetIntArray(' ');
+            sticks = input.ToIntArray(' ');
 
             output.Add(sticks.Count());
 
