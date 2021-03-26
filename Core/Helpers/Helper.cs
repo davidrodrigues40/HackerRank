@@ -19,16 +19,26 @@ namespace Core.Helpers
 
         public static int[] ToIntArray(this object input, char separator)
         {
-            var strArray = input.ToString().Split(separator);
+            var strArray = input.ToStringList(separator);
 
             return strArray.Select(int.Parse).ToArray();
         }
 
         public static List<int> ToIntList(this object input, char separator)
         {
-            var strArray = input.ToString().Split(separator);
+            var strArray = input.ToStringList(separator);
 
             return strArray.Select(int.Parse).ToList();
+        }
+
+        public static string[] ToStringList(this object input, char separator)
+        {
+            return input.ToString().Split(separator);
+        }
+
+        public static bool Between(this int value, int lower, int upper)
+        {
+            return value >= lower && value <= upper;
         }
     }
 }

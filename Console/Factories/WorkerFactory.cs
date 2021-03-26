@@ -13,7 +13,8 @@ namespace ConsoleApp.Factories
         ExtraLongFactorials,
         AppendAndDelete,
         CutTheSticks,
-        GradingStudents
+        GradingStudents,
+        AppleAndOrange
     }
     public class WorkerFactory
     {
