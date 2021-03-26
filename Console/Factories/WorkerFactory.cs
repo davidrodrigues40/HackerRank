@@ -14,7 +14,8 @@ namespace ConsoleApp.Factories
         AppendAndDelete,
         CutTheSticks,
         GradingStudents,
-        AppleAndOrange
+        AppleAndOrange,
+        NumberLineJumps
     }
     public class WorkerFactory
     {
