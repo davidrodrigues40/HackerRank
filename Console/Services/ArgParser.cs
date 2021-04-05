@@ -1,6 +1,4 @@
 ﻿using ConsoleApp.Models;
-using System;
-using ConsoleApp.Factories;
 
 namespace ConsoleApp.Services
 {
@@ -19,7 +17,7 @@ namespace ConsoleApp.Services
 
             if (args.GetValue(0) != null)
             {
-                output.Problem = (Problem)Enum.Parse(typeof(Problem), args[0], true);
+                output.Problem = args[0];
             }
 
             if (args.Length > 0 && args.GetValue(1) != null)

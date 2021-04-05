@@ -19,9 +19,9 @@ namespace ConsoleApp.Factories
     }
     public class WorkerFactory
     {
-        public object GetWorker(Problem problem)
+        public object GetWorker(string problem)
         {
-            string sType = $"Core.Problems.{problem.ToString()}, Core";
+            string sType = $"Core.Problems.{problem}, Core";
             var type = Type.GetType(sType);
 
             return Activator.CreateInstance(type);
