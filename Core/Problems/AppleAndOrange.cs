@@ -1,4 +1,5 @@
 ﻿using Core.Helpers;
+using Core.Services;
 using System;
 
 namespace Core.Problems
@@ -26,28 +27,12 @@ namespace Core.Problems
 
         private void CountApples(int s, int a, int[] apples, int t)
         {
-            var count = 0;
-            if (a < s)
-            {
-                foreach (int apple in apples)
-                {
-                    if ((a + apple).Between(s, t)) count++;
-                }
-            }
-            Console.WriteLine(count);
+            Console.WriteLine(BoundryService.LeftSideInRange(s, t, a, apples));
         }
 
         private void CountOranges(int t, int b, int[] oranges, int s)
         {
-            var count = 0;
-            if (b > t)
-            {
-                foreach (int orange in oranges)
-                {
-                    if ((b + orange).Between(s, t)) count++;
-                }
-            }
-            Console.WriteLine(count);
+            Console.WriteLine(BoundryService.RightSideInRange(s, t, b, oranges));
         }
     }
 }

@@ -12,10 +12,7 @@ namespace Core.Problems
             do
             {
                 n -= 1;
-                if (n > 0)
-                {
-                    output *= (n);
-                }
+                output *= n;
             }
             while (n > 1);
             Console.WriteLine(output);

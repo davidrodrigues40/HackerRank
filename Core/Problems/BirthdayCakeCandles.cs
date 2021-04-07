@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Helpers;
+using System;
 using System.Linq;
 
 namespace Core.Problems
@@ -7,12 +8,10 @@ namespace Core.Problems
     {
         public void DoWork(object input)
         {
-            var strArray = input.ToString().Split(',');
-            var arr = strArray.Select<string, int>(int.Parse).ToArray();
-            var candles = arr.ToList();
+            var strArray = input.ToString().Split(' ');
+            var arr = strArray.Select(int.Parse).ToArray();
 
-            var max = candles.Max();
-            Console.WriteLine(candles.Count(a => a == max));
+            Console.WriteLine(arr.CountMax());
         }
     }
 }

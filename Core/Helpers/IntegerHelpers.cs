@@ -36,9 +36,14 @@ namespace Core.Helpers
             return input.ToString().Split(separator);
         }
 
-        public static bool Between(this int value, int lower, int upper)
+        public static bool Between(this int input, int lower, int upper)
         {
-            return value >= lower && value <= upper;
+            return input >= lower && input <= upper;
+        }
+
+        public static int CountMax(this int[] input)
+        {
+            return input.Count(a => a == input.Max());
         }
     }
 }
