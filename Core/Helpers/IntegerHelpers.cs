@@ -45,5 +45,29 @@ namespace Core.Helpers
         {
             return input.Count(a => a == input.Max());
         }
+
+        public static int CountMin(this int[] input)
+        {
+            return input.Count(a => a == input.Min());
+        }
+
+        public static int GreaterThanOrEqual(this int[] input, int max)
+        {
+            return input.Count(a => a >= max);
+        }
+        public static int LessThanOrEqual(this int[] input, int max)
+        {
+            return input.Count(a => a <= max);
+        }
+
+        public static string ToOneLineString(this int[] input)
+        {
+            var output = "";
+            foreach (int item in input)
+            {
+                output += item + " ";
+            }
+            return output.Trim();
+        }
     }
 }
