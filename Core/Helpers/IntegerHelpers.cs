@@ -17,6 +17,11 @@ namespace Core.Helpers
             return list;
         }
 
+        public static int ToInt(this object input)
+        {
+            return int.Parse(input.ToString());
+        }
+
         public static int[] ToIntArray(this object input, char separator)
         {
             var strArray = input.ToStringList(separator);
