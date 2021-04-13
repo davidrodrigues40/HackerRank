@@ -3,9 +3,9 @@ using System;
 
 namespace Core.Problems
 {
-    public class FindDigits : IWorker
+    public class FindDigits : IProblem
     {
-        public void DoWork(object input)
+        public void Solve(object input)
         {
 
             int n = int.Parse((string)input);

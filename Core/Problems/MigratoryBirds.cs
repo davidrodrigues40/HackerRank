@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace Core.Problems
 {
-    public class MigratoryBirds : IWorker
+    public class MigratoryBirds : IProblem
     {
-        public void DoWork(object input)
+        public void Solve(object input)
         {
             var list = input.ToIntList(' ');
             Console.WriteLine(migratoryBirds(list));

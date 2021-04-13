@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace Core.Problems
 {
-    public class MinMaxSum : IWorker
+    public class MinMaxSum : IProblem
     {
-        public void DoWork(object a)
+        public void Solve(object a)
         {
             var strArray = a.ToString().Split(' ');
             int[] arr = strArray.Select<string, int>(int.Parse).ToArray();

@@ -3,10 +3,10 @@ using System;
 
 namespace Core.Problems
 {
-    public class Staircase : IWorker
+    public class Staircase : IProblem
     {
         private const string _character = "#";
-        public void DoWork(object s)
+        public void Solve(object s)
         {
             var size = int.Parse((string)s);
             Console.Write(StepService.BuildSteps(size, _character));

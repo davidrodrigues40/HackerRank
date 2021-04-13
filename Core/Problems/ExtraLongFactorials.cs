@@ -3,9 +3,9 @@ using System.Numerics;
 
 namespace Core.Problems
 {
-    public class ExtraLongFactorials : IWorker
+    public class ExtraLongFactorials : IProblem
     {
-        public void DoWork(object input)
+        public void Solve(object input)
         {
             int n = int.Parse(input.ToString());
             BigInteger output = n;

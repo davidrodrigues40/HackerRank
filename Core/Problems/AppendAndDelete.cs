@@ -2,9 +2,9 @@
 
 namespace Core.Problems
 {
-    public class AppendAndDelete : IWorker
+    public class AppendAndDelete : IProblem
     {
-        public void DoWork(object input)
+        public void Solve(object input)
         {
             var n = (string)input;
             var arr = n.Split(' ');

@@ -4,9 +4,9 @@ using System;
 
 namespace Core.Problems
 {
-    public class BreakingTheRecords : IWorker
+    public class BreakingTheRecords : IProblem
     {
-        public void DoWork(object input)
+        public void Solve(object input)
         {
             Console.WriteLine(breakingRecords(input.ToIntArray(' ')).ToOneLineString());
         }

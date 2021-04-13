@@ -3,9 +3,9 @@ using System;
 
 namespace Core.Problems
 {
-    public class TimeConversion : IWorker
+    public class TimeConversion : IProblem
     {
-        public void DoWork(object input)
+        public void Solve(object input)
         {
             var s = (string)input;
             var timeArr = s.Split(':');

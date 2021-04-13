@@ -4,9 +4,9 @@ using System;
 
 namespace Core.Problems
 {
-    public class NumberLineJumps : IWorker
+    public class NumberLineJumps : IProblem
     {
-        public void DoWork(object input)
+        public void Solve(object input)
         {
             int[] strArray = input.ToIntArray(' ');
             int x1 = strArray[0];

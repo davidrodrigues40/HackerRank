@@ -5,9 +5,9 @@ using System;
 
 namespace Core.Problems
 {
-    public class DivisibleSumPairs : IWorker
+    public class DivisibleSumPairs : IProblem
     {
-        public void DoWork(object input)
+        public void Solve(object input)
         {
             string[] p = input.ToStringList(' ');
             var n = int.Parse(p[1]);

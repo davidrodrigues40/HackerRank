@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace Core.Problems
 {
-    public class GradingStudents : IWorker
+    public class GradingStudents : IProblem
     {
-        public void DoWork(object input)
+        public void Solve(object input)
         {
             var grades = input.ToIntList(' ');
             var output = new List<int>();

@@ -4,9 +4,9 @@ using System;
 
 namespace Core.Problems
 {
-    public class AppleAndOrange : IWorker
+    public class AppleAndOrange : IProblem
     {
-        public void DoWork(object input)
+        public void Solve(object input)
         {
             var strArray = input.ToStringList(' ');
             var s = int.Parse(strArray[0]);

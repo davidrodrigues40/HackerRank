@@ -5,11 +5,11 @@ using System.Linq;
 
 namespace Core.Problems
 {
-    public class CutTheSticks : IWorker
+    public class CutTheSticks : IProblem
     {
         public int[] sticks;
         public List<int> output = new List<int>();
-        public void DoWork(object input)
+        public void Solve(object input)
         {
             sticks = input.ToIntArray(' ');
 

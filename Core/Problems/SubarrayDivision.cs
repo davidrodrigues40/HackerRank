@@ -7,9 +7,9 @@ using System.Linq;
 
 namespace Core.Problems
 {
-    public class SubarrayDivision : IWorker
+    public class SubarrayDivision : IProblem
     {
-        public void DoWork(object input)
+        public void Solve(object input)
         {
             string[] p = input.ToStringList(' ');
             var s = JsonConvert.DeserializeObject<int[]>(p[0]);

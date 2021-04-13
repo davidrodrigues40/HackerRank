@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace Core.Problems
 {
-    public class BetweenTwoSets : IWorker
+    public class BetweenTwoSets : IProblem
     {
-        public void DoWork(object input)
+        public void Solve(object input)
         {
             var strValue = input.ToString().Split(' ');
             List<int> a = JsonConvert.DeserializeObject<List<int>>(strValue[0]);

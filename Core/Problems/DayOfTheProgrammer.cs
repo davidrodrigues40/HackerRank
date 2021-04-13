@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace Core.Problems
 {
-    public class DayOfTheProgrammer : IWorker
+    public class DayOfTheProgrammer : IProblem
     {
-        public void DoWork(object input)
+        public void Solve(object input)
         {
             var year = input.ToInt();
             Console.WriteLine(dayOfProgrammer(year));
