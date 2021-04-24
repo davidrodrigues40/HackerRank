@@ -1,6 +1,5 @@
 ﻿using Core.Helpers;
 using Core.Services;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,12 +10,14 @@ namespace Core.Problems
     {
         public void Solve(object input)
         {
-            string[] p = input.ToStringList(' ');
-            var s = JsonConvert.DeserializeObject<int[]>(p[0]);
-            var d = int.Parse(p[1]);
-            var m = int.Parse(p[2]);
+            string[] p = Splitter.ToStringArray(input, ' ');
+            (int[] intArray, int int1, int int2) = Splitter.ToIntArray_Int_Int(p);
 
-            Console.WriteLine(birthday(s.ToList(), d, m));
+            //var s = JsonConvert.DeserializeObject<int[]>(p[0]);
+            //var d = int.Parse(p[1]);
+            //var m = int.Parse(p[2]);
+
+            Console.WriteLine(birthday(intArray.ToList(), int1, int2));
         }
 
         static int birthday(List<int> s, int d, int m)

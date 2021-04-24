@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Core.Helpers
@@ -27,6 +28,11 @@ namespace Core.Helpers
             var strArray = input.ToStringList(separator);
 
             return strArray.Select(int.Parse).ToArray();
+        }
+
+        public static int[] ToIntArray(this string input)
+        {
+            return JsonConvert.DeserializeObject<int[]>(input);
         }
 
         public static List<int> ToIntList(this object input, char separator)
