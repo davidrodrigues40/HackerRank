@@ -20,7 +20,7 @@ namespace ConsoleApp.Services
                 output.Problem = args[0];
             }
 
-            if (args.Length > 0 && args.GetValue(1) != null)
+            if (args.Length > 1 && args.GetValue(1) != null)
             {
                 output.Input = args.GetValue(1);
             }

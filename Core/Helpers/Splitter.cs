@@ -36,6 +36,23 @@ namespace Core.Helpers
             return (integer, str);
         }
 
+        public static (int integer1, int integer2, int integer3) ToInt_Int_Int(this string[] input)
+        {
+            return (input[0].ToInt(), input[1].ToInt(), input[2].ToInt());
+        }
+
+        public static List<int[]> ToListOfIntArrays(this string[] input)
+        {
+            var output = new List<int[]>();
+
+            foreach (string item in input)
+            {
+                output.Add(item.ToIntArray());
+            }
+
+            return output;
+        }
+
         public static (int[] arr1, int[] arr2, int integer) ToIntArray_IntArray_Int(this string[] input)
         {
             var arr1 = input[0].ToIntArray();
