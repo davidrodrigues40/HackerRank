@@ -7,7 +7,7 @@ namespace ConsoleApp
 {
     class Program
     {
-        private static readonly string[] _args = { "CatsAndAMouse", "[1,3,2] [1,2,3]" };
+        private static readonly string[] _args = { "FormingAMagicSquare", "[4,9,2] [3,5,7] [8,1,5]" };
         static void Main(string[] args)
         {
             var parser = new ArgParser();

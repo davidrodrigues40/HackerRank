@@ -80,5 +80,15 @@ namespace Core.Helpers
             }
             return output.Trim();
         }
+
+        public static int Sum(this List<int> input)
+        {
+            var output = 0;
+            foreach (var number in input)
+            {
+                output += number;
+            }
+            return output;
+        }
     }
 }

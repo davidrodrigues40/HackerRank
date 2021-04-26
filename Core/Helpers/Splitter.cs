@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Core.Helpers
 {
@@ -48,6 +49,18 @@ namespace Core.Helpers
             foreach (string item in input)
             {
                 output.Add(item.ToIntArray());
+            }
+
+            return output;
+        }
+
+        public static List<List<int>> ToListOfIntList(this string[] input)
+        {
+            var output = new List<List<int>>();
+
+            foreach (string item in input)
+            {
+                output.Add(item.ToIntArray().ToList());
             }
 
             return output;
