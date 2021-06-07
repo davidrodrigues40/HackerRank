@@ -42,6 +42,12 @@ namespace Core.Helpers
             return strArray.Select(int.Parse).ToList();
         }
 
+        public static List<int> ToIntList(this object input)
+        {
+            var str = input.ToString();
+            return JsonConvert.DeserializeObject<List<int>>(str);
+        }
+
         public static string[] ToStringList(this object input, char separator)
         {
             return input.ToString().Split(separator);
