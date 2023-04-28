@@ -11,68 +11,28 @@ namespace Core.Problems
         {
             var p = input.ToIntList(' ');
 
-            Console.WriteLine(pickingNumbers(p));
+            Console.WriteLine(PickNumbers(p));
         }
 
-        public static int pickingNumbers(List<int> a)
+        public static int PickNumbers(List<int> a)
         {
-            var list = new List<List<int>>();
-            var curr = new List<int>();
-
+            var max = 0;
             for (int i = 0; i < a.Count; i++)
             {
-                if (i == 0)
-                    curr.Add(a[i]);
-                else
-                {
-                    if (a[i] > a[i - 1])
-                        movingUp(a[i], a[i - 1], curr, list);
-                    else
-                        movingDown(a[i], a[i - 1], curr, list);
-                }
+                var currentIndex = i;
+                var currentValue = a[i];
+                var filtered = a.Where((int value, int index) => GetIndex(value, index, currentIndex, currentValue));
+
+                max = Math.Max(filtered.Count(), max);
             }
 
-            return list.Select(r => r.Count).Max();
+
+            return max;
         }
 
-        private static void movingUp(int a, int b, List<int> curr, List<List<int>> list)
+        private static bool GetIndex(int value, int index, int currentIndex, int currentValue)
         {
-            var beginNew = false;
-
-            if (a - b > 1)
-            {
-                beginNew = true;
-                list.Add(curr);
-            }
-            else
-            {
-                curr.Add(a);
-            }
-
-            if (beginNew)
-            {
-                curr = new List<int>() { a };
-            }
-        }
-
-        private static void movingDown(int a, int b, List<int> curr, List<List<int>> list)
-        {
-            var beginNew = false;
-
-            if (b - a > 1)
-            {
-                beginNew = true;
-                list.Add(curr);
-            }
-            else
-            {
-                curr.Add(a);
-            }
-
-            if (beginNew)
-            {
-                curr = new List<int>() { a };
-            }
+            return (value == currentValue || value == currentValue + 1);
         }
     }
 }

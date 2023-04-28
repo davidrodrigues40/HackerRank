@@ -1,21 +1,23 @@
 ﻿using ConsoleApp.Factories;
+using ConsoleApp.Models;
 using ConsoleApp.Services;
 using Core.Problems;
 using System;
 
 namespace ConsoleApp
 {
-    class Program
+    internal class Program
     {
-        private static readonly string[] _args = { "PickingNumbers", "98 3 99 1 97 2" };
-        static void Main(string[] args)
+        private static readonly string[] Args = { "PickingNumbers", "1 2 2 3 1 2" };
+
+        private static void Main(string[] args)
         {
             var parser = new ArgParser();
 
-            var parameters = parser.GetParameters(_args);
+            Parameters parameters = parser.GetParameters(Args);
 
             var factory = new WorkerFactory();
-            IProblem worker = (IProblem)factory.GetWorker(parameters.Problem);
+            var worker = (IProblem)factory.GetWorker(parameters.Problem);
             worker.Solve(parameters.Input);
 
             Console.WriteLine("Press any key to quit");
