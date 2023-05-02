@@ -9,7 +9,7 @@ namespace Core.Problems
     {
         public void Solve(object input)
         {
-            var p = input.ToIntList(' ');
+            var p = input.ToIntList(',');
 
             Console.WriteLine(PickNumbers(p));
         }

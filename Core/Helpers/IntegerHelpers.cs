@@ -1,6 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Core.Helpers
 {
@@ -15,6 +13,7 @@ namespace Core.Helpers
             {
                 list.Add(int.Parse(c.ToString()));
             }
+
             return list;
         }
 
@@ -72,6 +71,7 @@ namespace Core.Helpers
         {
             return input.Count(a => a >= max);
         }
+
         public static int LessThanOrEqual(this int[] input, int max)
         {
             return input.Count(a => a <= max);
@@ -84,6 +84,7 @@ namespace Core.Helpers
             {
                 output += item + " ";
             }
+
             return output.Trim();
         }
 
@@ -94,6 +95,7 @@ namespace Core.Helpers
             {
                 output += number;
             }
+
             return output;
         }
     }
