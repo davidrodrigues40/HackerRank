@@ -6,7 +6,6 @@ namespace Core.Problems
 {
     public class ClimbingLeaderBoard : IProblem
     {
-        private const char _separator = ',';
         private const char _arraySplitter = ' ';
         private Stopwatch? _stopwatch;
         private static ImmutableSortedSet<int> _currentRanks;
