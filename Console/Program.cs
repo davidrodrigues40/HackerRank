@@ -1,14 +1,13 @@
 ﻿using ConsoleApp.Factories;
 using ConsoleApp.Models;
 using ConsoleApp.Services;
-using Core.Problems;
 using System;
 
 namespace ConsoleApp
 {
     internal class Program
     {
-        private static readonly string[] Args = { "HurdleRace" };
+        private static readonly string[] Args = { "DesignerPdfViewer" };
 
         private static void Main(string[] args)
         {
@@ -26,8 +25,7 @@ namespace ConsoleApp
 
         private static void Run(Parameters parameters)
         {
-            var factory = new WorkerFactory();
-            var worker = (IProblem)factory.GetWorker(parameters.Problem);
+            var worker = WorkerFactory.GetWorker(parameters.Problem);
 
             worker.Solve(parameters.Input);
 

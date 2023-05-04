@@ -9,6 +9,7 @@ public static class ArgGenerator
             "ClimbingLeaderBoard" => "[100,90,90,80,75,60] [50,65,77,90,102]",
             "PickingNumbers" => "1,1,2,2,4,4,5,5,5",
             "HurdleRace" => "7,2 5 4 5 2",
+            "DesignerPdfViewer" => "1 3 1 3 1 4 1 3 2 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 7,zaba",
             _ => "[100,100,50,40,40,20,10] [5,25,50,120]"
         };
 

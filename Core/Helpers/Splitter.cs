@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace Core.Helpers
+﻿namespace Core.Helpers
 {
     public static class Splitter
     {
@@ -73,6 +70,14 @@ namespace Core.Helpers
             var integer = input[2].ToInt();
 
             return (arr1, arr2, integer);
+        }
+
+        public static (int[], string word) ToIntArray_String(this string[] input)
+        {
+            var arr1 = input[0].ToIntArray(' ');
+            var word = input[1].ToString();
+
+            return (arr1, word);
         }
     }
 }
