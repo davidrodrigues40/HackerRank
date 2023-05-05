@@ -7,7 +7,7 @@ namespace ConsoleApp
 {
     internal class Program
     {
-        private static readonly string[] Args = { "BeautifulDaysAtTheMovies" };
+        private static readonly string[] Args = { "HackerLand" };
 
         private static void Main(string[] args)
         {

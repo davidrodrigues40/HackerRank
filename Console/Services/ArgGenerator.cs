@@ -13,6 +13,7 @@ public static class ArgGenerator
             "UtopianTree" => "0 1 4",
             "AngryProfessor" => "3,-1 -3 4 2",
             "BeautifulDaysAtTheMovies" => "20,23,6",
+            "HackerLand" => "5",
             _ => "[100,100,50,40,40,20,10] [5,25,50,120]"
         };
 
