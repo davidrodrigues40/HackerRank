@@ -24,24 +24,13 @@ namespace Core.Problems
                 else
                 {
                     if (i % 2 == 0)
-                        height = height + 1;
+                        height += 1;
                     else
-                        height = height * 2;
+                        height *= 2;
                 }
             }
 
             return height;
-        }
-
-        private static int SpringGrowth(int n)
-        {
-            return n * 2;
-
-        }
-
-        private static int SummerGrowth(int n)
-        {
-            return n + 1;
         }
     }
 }
