@@ -79,5 +79,14 @@
 
             return (arr1, word);
         }
+
+        public static (int, int[]) ToInt_IntArray(this object input, char arraySplitter, char intSplitter)
+        {
+            var arrs = input.ToStringArray(arraySplitter);
+            var intArray = arrs[1].ToIntArray(intSplitter);
+            var integer = arrs[0].ToInt();
+
+            return (integer, intArray);
+        }
     }
 }
