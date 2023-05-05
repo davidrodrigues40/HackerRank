@@ -7,7 +7,7 @@ namespace ConsoleApp
 {
     internal class Program
     {
-        private static readonly string[] Args = { "DesignerPdfViewer" };
+        private static readonly string[] Args = { "UtopianTree" };
 
         private static void Main(string[] args)
         {
