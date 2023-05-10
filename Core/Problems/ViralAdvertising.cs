@@ -2,7 +2,7 @@
 
 namespace Core.Problems
 {
-    internal class HackerLand : IProblem
+    internal class ViralAdvertising : IProblem
     {
         public void Solve(object input)
         {

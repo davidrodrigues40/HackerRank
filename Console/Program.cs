@@ -1,13 +1,14 @@
 ﻿using ConsoleApp.Factories;
 using ConsoleApp.Models;
 using ConsoleApp.Services;
+using Core.Problems;
 using System;
 
 namespace ConsoleApp
 {
     internal class Program
     {
-        private static readonly string[] Args = { "HackerLand" };
+        private static readonly string[] Args = { "SaveThePrisoner" };
 
         private static void Main(string[] args)
         {
@@ -18,24 +19,32 @@ namespace ConsoleApp
             Parameters parameters = parser.GetParameters(ArgGenerator.GetArguments(arguments[0]));
 
             Console.WriteLine($"Running Problem {parameters.Problem}");
-            Console.WriteLine($"With values {parameters.Input}");
 
             Run(parameters);
         }
 
         private static void Run(Parameters parameters)
         {
-            var worker = WorkerFactory.GetWorker(parameters.Problem);
+            while (true)
+            {
+                IProblem worker = WorkerFactory.GetWorker(parameters.Problem);
 
-            worker.Solve(parameters.Input);
+                worker.Solve(parameters.Input);
 
-            Console.WriteLine("Press Q to quit");
-            var key = Console.ReadKey();
+                Console.WriteLine("Press Q to quit");
+                var key = Console.ReadKey();
 
-            if (key.Key.ToString().ToLower() == "q")
-                return;
-            else
-                Run(parameters);
+                if (key.Key.ToString().ToLower() == "q")
+                    End();
+                else
+                    continue;
+                break;
+            }
+        }
+
+        private static void End()
+        {
+            GC.Collect();
         }
     }
 }

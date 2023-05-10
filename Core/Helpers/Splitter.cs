@@ -34,6 +34,11 @@
             return (integer, str);
         }
 
+        public static (int integer1, int integer2, int integer3) ToInt_Int_Int(this object input, char separator)
+        {
+            return ToInt_Int_Int(input.ToStringArray(separator));
+        }
+
         public static (int integer1, int integer2, int integer3) ToInt_Int_Int(this string[] input)
         {
             return (input[0].ToInt(), input[1].ToInt(), input[2].ToInt());
