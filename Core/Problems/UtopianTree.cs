@@ -6,7 +6,7 @@ namespace Core.Problems
     {
         public void Solve(object input)
         {
-            var cycles = input.ToIntArray(' ');
+            var cycles = input.ToIntArray_Int(' ');
 
             foreach (var cycle in cycles)
             {

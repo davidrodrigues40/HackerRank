@@ -8,7 +8,7 @@ namespace ConsoleApp
 {
     internal class Program
     {
-        private static readonly string[] Args = { "SequenceEquation" };
+        private static readonly string[] Args = { "JumpingOnTheCloudsRevisited" };
 
         private static void Main(string[] args)
         {

@@ -13,8 +13,8 @@ namespace Core.Problems
             var t = int.Parse(strArray[1]);
             var a = int.Parse(strArray[2]);
             var b = int.Parse(strArray[3]);
-            var apples = strArray[4].ToIntArray(',');
-            var oranges = strArray[5].ToIntArray(',');
+            var apples = strArray[4].ToIntArray_Int(',');
+            var oranges = strArray[5].ToIntArray_Int(',');
 
             CountApplesAndOranges(s, t, a, b, apples, oranges);
         }

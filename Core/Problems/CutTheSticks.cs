@@ -11,7 +11,7 @@ namespace Core.Problems
         public List<int> output = new List<int>();
         public void Solve(object input)
         {
-            sticks = input.ToIntArray(' ');
+            sticks = input.ToIntArray_Int(' ');
 
             output.Add(sticks.Count());
 

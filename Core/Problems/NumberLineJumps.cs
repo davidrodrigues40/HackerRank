@@ -8,7 +8,7 @@ namespace Core.Problems
     {
         public void Solve(object input)
         {
-            int[] strArray = input.ToIntArray(' ');
+            int[] strArray = input.ToIntArray_Int(' ');
             int x1 = strArray[0];
             int v1 = strArray[1];
             int x2 = strArray[2];

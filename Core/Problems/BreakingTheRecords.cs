@@ -8,7 +8,7 @@ namespace Core.Problems
     {
         public void Solve(object input)
         {
-            Console.WriteLine(breakingRecords(input.ToIntArray(' ')).ToOneLineString());
+            Console.WriteLine(breakingRecords(input.ToIntArray_Int(' ')).ToOneLineString());
         }
 
         private int[] breakingRecords(int[] scores)

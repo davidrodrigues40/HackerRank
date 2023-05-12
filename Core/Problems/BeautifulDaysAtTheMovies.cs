@@ -6,7 +6,7 @@ namespace Core.Problems
     {
         public void Solve(object input)
         {
-            var ints = input.ToIntArray(',');
+            var ints = input.ToIntArray_Int(',');
 
             Console.WriteLine(DoWork(ints[0], ints[1], ints[2]));
         }

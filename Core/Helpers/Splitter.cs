@@ -80,16 +80,16 @@
         public static (int[] arr1, int integer, int[] arr2) ToIntArray_Int_IntArray(this object input, char objectSplitter, char intSplitter)
         {
             var arrs = input.ToStringArray(objectSplitter);
-            var arr1 = arrs[0].ToIntArray(intSplitter);
+            var arr1 = arrs[0].ToIntArray_Int(intSplitter);
             var integer = arrs[1].ToInt();
-            var arr2 = arrs[2].ToIntArray(intSplitter);
+            var arr2 = arrs[2].ToIntArray_Int(intSplitter);
 
             return (arr1, integer, arr2);
         }
 
         public static (int[], string word) ToIntArray_String(this string[] input)
         {
-            var arr1 = input[0].ToIntArray(' ');
+            var arr1 = input[0].ToIntArray_Int(' ');
             var word = input[1].ToString();
 
             return (arr1, word);
@@ -98,10 +98,19 @@
         public static (int, int[]) ToInt_IntArray(this object input, char arraySplitter, char intSplitter)
         {
             var arrs = input.ToStringArray(arraySplitter);
-            var intArray = arrs[1].ToIntArray(intSplitter);
+            var intArray = arrs[1].ToIntArray_Int(intSplitter);
             var integer = arrs[0].ToInt();
 
             return (integer, intArray);
+        }
+
+        public static (int[], int) ToIntArray_Int(this object input, char arraySplitter, char intSplitter)
+        {
+            var arrs = input.ToStringArray(arraySplitter);
+            var intArray = arrs[0].ToIntArray_Int(intSplitter);
+            var integer = arrs[1].ToInt();
+
+            return (intArray, integer);
         }
     }
 }
