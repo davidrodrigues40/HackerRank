@@ -8,7 +8,7 @@ namespace Core.Problems
     {
         private const char _arraySplitter = ' ';
         private Stopwatch? _stopwatch;
-        private static ImmutableSortedSet<int> _currentRanks;
+        private static ImmutableSortedSet<int>? _currentRanks;
 
 
         public void Solve(object input)
@@ -44,12 +44,12 @@ namespace Core.Problems
         private static int GetRanking(int score)
         {
 
-            if (!_currentRanks.Contains(score))
+            if (_currentRanks != null && !_currentRanks.Contains(score))
             {
                 _currentRanks = _currentRanks.Add(score);
             }
 
-            return _currentRanks.Count - _currentRanks.IndexOf(score);
+            return _currentRanks != null ? _currentRanks.Count - _currentRanks.IndexOf(score) : 0;
         }
 
     }
