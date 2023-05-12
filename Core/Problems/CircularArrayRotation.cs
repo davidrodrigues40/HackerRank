@@ -28,10 +28,9 @@ public class CircularArrayRotation : IProblem
         a.Reverse();
 
         var last = a.Skip(k);
-
         var first = a.Take(k);
-
         var rotatedList = last.Concat(first).ToList();
+
         rotatedList.Reverse();
 
         return queries.Select(q => rotatedList.ElementAt(q)).ToList();
