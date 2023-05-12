@@ -6,17 +6,14 @@ namespace Core.Problems
     {
         public void Solve(object input)
         {
-            var lines = input.ToString().Split('\n');
+            string[]? lines = input.ToString()?.Split('\n');
+            if (lines != null)
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    var (n, m, s) = lines[i].ToInt_Int_Int(' ');
 
-            for (int i = 0; i < lines.Length; i++)
-            {
-                var (n, m, s) = lines[i].ToInt_Int_Int(' ');
-                var expected = Expected[i];
-                var actual = DoWork(n, m, s);
-
-                Console.WriteLine(actual);
-            }
-
+                    Console.WriteLine(DoWork(n, m, s));
+                }
         }
 
         /// <summary>
@@ -42,7 +39,5 @@ namespace Core.Problems
 
             return output;
         }
-
-        private static int[] Expected => $"3\n3\n1\n22815232\n12\n410053348\n10\n7\n6\n13\n5\n5378692\n20\n15\n4\n4\n5\n10\n4\n3\n1\n6\n2\n4\n1\n1\n2\n607\n3\n17\n3\n1\n2\n1\n6\n2\n15\n2\n27\n2\n1\n1\n7\n2\n2\n3\n1\n2\n2\n3\n3\n2\n3\n2\n1\n8\n18843\n1\n2\n9\n13\n6\n1\n1\n1\n1\n7\n3\n2\n2\n9\n2\n7\n14\n3\n9\n3\n6\n7\n3\n3\n3\n1\n1\n1\n5\n2\n5\n6\n1\n3\n4\n11\n3\n5\n1\n38321\n1460445\n10\n1".Split('\n').Select(s => int.Parse(s)).ToArray();
     }
 }

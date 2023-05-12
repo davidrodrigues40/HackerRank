@@ -8,7 +8,7 @@ namespace ConsoleApp
 {
     internal class Program
     {
-        private static readonly string[] Args = { "SaveThePrisoner" };
+        private static readonly string[] Args = { "CircularArrayRotation" };
 
         private static void Main(string[] args)
         {

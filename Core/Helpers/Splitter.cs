@@ -9,7 +9,7 @@
 
         public static string[] ToStringArray(this char[] input)
         {
-            List<string> arr = new List<string>();
+            List<string> arr = new();
             foreach (char item in input)
             {
                 arr.Add(item.ToString());
@@ -75,6 +75,16 @@
             var integer = input[2].ToInt();
 
             return (arr1, arr2, integer);
+        }
+
+        public static (int[] arr1, int integer, int[] arr2) ToIntArray_Int_IntArray(this object input, char objectSplitter, char intSplitter)
+        {
+            var arrs = input.ToStringArray(objectSplitter);
+            var arr1 = arrs[0].ToIntArray(intSplitter);
+            var integer = arrs[1].ToInt();
+            var arr2 = arrs[2].ToIntArray(intSplitter);
+
+            return (arr1, integer, arr2);
         }
 
         public static (int[], string word) ToIntArray_String(this string[] input)

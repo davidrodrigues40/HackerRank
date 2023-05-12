@@ -4,7 +4,6 @@ namespace Core.Problems
 {
     internal class UtopianTree : IProblem
     {
-        private readonly int _initialHeight = 1;
         public void Solve(object input)
         {
             var cycles = input.ToIntArray(' ');
