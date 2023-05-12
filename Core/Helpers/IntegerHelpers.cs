@@ -6,7 +6,7 @@ namespace Core.Helpers
     {
         public static List<int> GetDigits(this int input)
         {
-            List<int> list = new List<int>();
+            List<int> list = new();
 
             string stringDigits = input.ToString();
             foreach (char c in stringDigits)
@@ -19,7 +19,9 @@ namespace Core.Helpers
 
         public static int ToInt(this object input)
         {
-            return int.Parse(input.ToString());
+            _ = int.TryParse(input.ToString(), out var output);
+
+            return output;
         }
 
         public static int[] ToIntArray(this object input, char separator)
@@ -31,7 +33,11 @@ namespace Core.Helpers
 
         public static int[] ToIntArray(this string input)
         {
-            return JsonConvert.DeserializeObject<int[]>(input);
+            var output = JsonConvert.DeserializeObject<int[]>(input);
+            if (output != null)
+                return output;
+
+            return Array.Empty<int>();
         }
 
         public static List<int> ToIntList(this object input, char separator)
@@ -43,13 +49,21 @@ namespace Core.Helpers
 
         public static List<int> ToIntList(this object input)
         {
+            var output = new List<int>();
             var str = input.ToString();
-            return JsonConvert.DeserializeObject<List<int>>(str);
+            if (str != null)
+                output = JsonConvert.DeserializeObject<List<int>>(str);
+
+            return output ?? new List<int>();
         }
 
         public static string[] ToStringList(this object input, char separator)
         {
-            return input.ToString().Split(separator);
+            var output = input.ToString();
+            if (output != null)
+                return output.Split(separator);
+
+            return Array.Empty<string>();
         }
 
         public static bool Between(this int input, int lower, int upper)
