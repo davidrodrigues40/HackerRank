@@ -17,43 +17,62 @@ namespace Core.Problems
             var steps = 0;
 
             if (s.Length > t.Length)
-                steps = PerformFunction(s, t, k);
-            else
+                steps = PerformLongFunction(s, t, k);
+            else if (s.Length == t.Length)
                 steps = PerformEqualFunction(s, t, k);
+            else
+                steps = PerformShortFunction(s, t, k);
 
             return steps == k ? "Yes" : "No";
         }
 
-        private static int PerformFunction(string longest, string shortest, int k)
+        private static int PerformLongFunction(string s, string t, int k)
         {
-            if (longest.StartsWith(shortest)) return StartsWith(longest, shortest, k);
 
-            var intersection = longest.Intersect(shortest);
+            var intersection = s.Zip(t, (c1, c2) => c1 == c2).TakeWhile(b => b).Count();
 
-            var delete = longest.Length - intersection.Count();
+            if (intersection == 0 && t.Length == s.Length && t.Length * 2 <= k) return k;
 
-            var additions = shortest.Length - intersection.Count();
+            var delete = s.Length - intersection;
+
+            var additions = t.Length - intersection;
 
             var total = delete + additions;
 
-            return (total % 2 == k % 2 ? k : total);
+            if (total > k) return total;
+
+            if (((total + s.Length) % 2 == k % 2 || total % 2 == k % 2)) return k;
+
+            return total;
+        }
+
+        private static int PerformShortFunction(string s, string t, int k)
+        {
+            var intersection = t.Zip(s, (c1, c2) => c1 == c2).TakeWhile(b => b).Count();
+
+            if (intersection == 0 && t.Length == s.Length && t.Length * 2 <= k) return k;
+
+            var delete = t.Length - intersection;
+
+            var additions = s.Length - intersection;
+
+            var total = delete + additions;
+
+            if (total > k) return total;
+
+            if ((total % 2 == k % 2 || total % 2 == k % 2)) return k;
+
+            return total;
         }
 
 
         private static int PerformEqualFunction(string s, string t, int k)
         {
-            if (s.Length != t.Length || s != t) return PerformFunction(t, s, k);
+            if (s != t) return PerformLongFunction(t, s, k);
 
             if ((s.Length + t.Length) % 2 == k % 2) return k;
 
             return (s.Length * 2) + 1;
-        }
-
-        private static int StartsWith(string longest, string shortest, int k)
-        {
-            var steps = longest.Length - shortest.Length;
-            if (steps % 2 == k % 2) return k;
-            return steps;
         }
     }
 }
