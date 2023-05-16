@@ -1,12 +1,11 @@
 ﻿using Core.Helpers;
 using Core.Services;
-using System;
 
 namespace Core.Problems
 {
     public class NumberLineJumps : IProblem
     {
-        public void Solve(object input)
+        public object Solve(object input)
         {
             int[] strArray = input.ToIntArray_Int(' ');
             int x1 = strArray[0];
@@ -14,7 +13,7 @@ namespace Core.Problems
             int x2 = strArray[2];
             int v2 = strArray[3];
 
-            Console.WriteLine(KagarooService.Race(x1, v1, x2, v2));
+            return KagarooService.Race(x1, v1, x2, v2);
         }
     }
 }

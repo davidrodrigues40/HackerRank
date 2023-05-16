@@ -1,18 +1,20 @@
 ﻿using Core.Services;
-using System;
-using System.Linq;
 
 namespace Core.Problems
 {
     public class MinMaxSum : IProblem
     {
-        public void Solve(object a)
+        public object Solve(object a)
         {
-            var strArray = a.ToString().Split(' ');
+            var str = a.ToString();
+            var strArray = str?.Split(' ');
+
+            if (strArray == null) return string.Empty;
+
             int[] arr = strArray.Select<string, int>(int.Parse).ToArray();
 
 
-            Console.WriteLine($"{SumService.MinSum(arr)} {SumService.MaxSum(arr)}");
+            return $"{SumService.MinSum(arr)} {SumService.MaxSum(arr)}";
         }
     }
 }

@@ -4,13 +4,13 @@ namespace Core.Problems
 {
     internal class AngryProfessor : IProblem
     {
-        public void Solve(object input)
+        public object Solve(object input)
         {
             var (k, a) = Splitter.ToInt_IntArray(input, ',', ' ');
             // k = threshold
             // a = arrival time
 
-            Console.WriteLine(DoWork(k, a.ToList()));
+            return DoWork(k, a.ToList());
         }
 
         private static string DoWork(int k, List<int> a)

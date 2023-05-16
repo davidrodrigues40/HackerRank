@@ -1,28 +1,27 @@
 ﻿using Core.Helpers;
-using System;
 
 namespace Core.Problems
 {
     public class DrawingBook : IProblem
     {
-        public void Solve(object input)
+        public object Solve(object input)
         {
             string[] p = input.ToStringList(' ');
             int pages = p[0].ToInt();
             int turnTo = p[1].ToInt();
 
-            Console.WriteLine(pageCount(pages, turnTo));
+            return PageCount(pages, turnTo);
         }
 
-        static int pageCount(int n, int p)
+        static int PageCount(int n, int p)
         {
             if (n / 2 >= p)
-                return turnFromFront(p);
+                return TurnFromFront(p);
 
-            return turnFromEnd(n, p);
+            return TurnFromEnd(n, p);
         }
 
-        static int turnFromEnd(int n, int p)
+        static int TurnFromEnd(int n, int p)
         {
             int turned = 0;
             int mod = n % 2 == 0 ? 1 : 0;
@@ -39,7 +38,7 @@ namespace Core.Problems
             return turned;
         }
 
-        static int turnFromFront(int p)
+        static int TurnFromFront(int p)
         {
             int turned = 0;
             for (int i = 2; i <= p;)

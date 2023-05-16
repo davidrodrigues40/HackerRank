@@ -1,22 +1,22 @@
 ﻿using Core.Helpers;
 using Newtonsoft.Json;
-using System;
-using System.Linq;
 
 namespace Core.Problems
 {
     public class SalesByMatch : IProblem
     {
-        public void Solve(object input)
+        public object Solve(object input)
         {
             string[] p = input.ToStringList(' ');
             var ar = JsonConvert.DeserializeObject<int[]>(p[0]);
             var n = int.Parse(p[1]);
 
-            Console.WriteLine(sockMerchant(n, ar));
+            if (ar == null) return 0;
+
+            return DoWork(n, ar);
         }
 
-        static int sockMerchant(int n, int[] ar)
+        static int DoWork(int n, int[] ar)
         {
             var socks = ar.ToList();
             var pairs = 0;

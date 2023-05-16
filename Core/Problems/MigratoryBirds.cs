@@ -1,17 +1,14 @@
 ﻿using Core.Helpers;
 using Core.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Core.Problems
 {
     public class MigratoryBirds : IProblem
     {
-        public void Solve(object input)
+        public object Solve(object input)
         {
             var list = input.ToIntList(' ');
-            Console.WriteLine(migratoryBirds(list));
+            return DoWork(list);
         }
         /// <summary>
         /// Given an array of bird sightings where every element represents a bird type id, determine the id of the most frequently sighted type. 
@@ -19,7 +16,7 @@ namespace Core.Problems
         /// </summary>
         /// <param name="arr"></param>
         /// <returns></returns>
-        static int migratoryBirds(List<int> arr)
+        static int DoWork(List<int> arr)
         {
             var birds = CountInstanceService.CountIntegers(arr.ToArray());
 

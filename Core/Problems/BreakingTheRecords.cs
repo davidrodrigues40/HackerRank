@@ -1,20 +1,19 @@
 ﻿using Core.Helpers;
 using Core.Services;
-using System;
 
 namespace Core.Problems
 {
     public class BreakingTheRecords : IProblem
     {
-        public void Solve(object input)
+        public object Solve(object input)
         {
-            Console.WriteLine(breakingRecords(input.ToIntArray_Int(' ')).ToOneLineString());
+            return BreakingRecords(input.ToIntArray_Int(' ')).ToOneLineString();
         }
 
-        private int[] breakingRecords(int[] scores)
+        private static int[] BreakingRecords(int[] scores)
         {
-            var value = RecordService.RecordsBroken(scores);
-            return new[] { value.max, value.min };
+            var (max, min) = RecordService.RecordsBroken(scores);
+            return new[] { max, min };
         }
     }
 }

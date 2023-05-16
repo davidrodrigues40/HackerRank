@@ -1,21 +1,18 @@
 ﻿using Core.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Core.Problems
 {
     public class ElectronicsShop : IProblem
     {
-        public void Solve(object input)
+        public object Solve(object input)
         {
             var p = input.ToStringArray(' ');
             var (arr1, arr2, integer) = p.ToIntArray_IntArray_Int();
 
-            Console.WriteLine(getMoneySpent(arr1, arr2, integer));
+            return GetMoneySpent(arr1, arr2, integer);
         }
 
-        static int getMoneySpent(int[] keyboards, int[] drives, int b)
+        static int GetMoneySpent(int[] keyboards, int[] drives, int b)
         {
             keyboards.ToList().Sort();
             drives.ToList().Sort();

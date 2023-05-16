@@ -4,14 +4,14 @@ namespace Core.Problems;
 
 public class CircularArrayRotation : IProblem
 {
-    public void Solve(object input)
+    public object Solve(object input)
     {
 
         (int[] arr1, int integer, int[] arr2) = input.ToIntArray_Int_IntArray(',', ' ');
 
         var rotated = DoWork(arr1.ToList(), integer, arr2.ToList());
 
-        Console.WriteLine(string.Join('\n', rotated));
+        return string.Join('\n', rotated);
     }
 
     private static List<int> DoWork(List<int> a, int k, List<int> queries)

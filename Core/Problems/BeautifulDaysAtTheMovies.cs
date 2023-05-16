@@ -4,14 +4,14 @@ namespace Core.Problems
 {
     internal class BeautifulDaysAtTheMovies : IProblem
     {
-        public void Solve(object input)
+        public object Solve(object input)
         {
             var ints = input.ToIntArray_Int(',');
 
-            Console.WriteLine(DoWork(ints[0], ints[1], ints[2]));
+            return DoWork(ints[0], ints[1], ints[2]);
         }
 
-        private int DoWork(int i, int j, int k)
+        private static int DoWork(int i, int j, int k)
         {
             var beautifulDays = 0;
             for (var x = i; x <= j; x++)

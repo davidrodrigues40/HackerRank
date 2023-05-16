@@ -1,12 +1,11 @@
 ﻿using Core.Helpers;
 using Core.Services;
-using System;
 
 namespace Core.Problems
 {
     public class AppleAndOrange : IProblem
     {
-        public void Solve(object input)
+        public object Solve(object input)
         {
             var strArray = input.ToStringList(' ');
             var s = int.Parse(strArray[0]);
@@ -16,23 +15,22 @@ namespace Core.Problems
             var apples = strArray[4].ToIntArray_Int(',');
             var oranges = strArray[5].ToIntArray_Int(',');
 
-            CountApplesAndOranges(s, t, a, b, apples, oranges);
+            return CountApplesAndOranges(s, t, a, b, apples, oranges);
         }
 
-        private void CountApplesAndOranges(int s, int t, int a, int b, int[] apples, int[] oranges)
+        private static int[] CountApplesAndOranges(int s, int t, int a, int b, int[] apples, int[] oranges)
         {
-            CountApples(s, a, apples, t);
-            CountOranges(t, b, oranges, s);
+            return new int[] { CountApples(s, a, apples, t), CountOranges(t, b, oranges, s) };
         }
 
-        private void CountApples(int s, int a, int[] apples, int t)
+        private static int CountApples(int s, int a, int[] apples, int t)
         {
-            Console.WriteLine(BoundryService.LeftSideInRange(s, t, a, apples));
+            return BoundryService.LeftSideInRange(s, t, a, apples);
         }
 
-        private void CountOranges(int t, int b, int[] oranges, int s)
+        private static int CountOranges(int t, int b, int[] oranges, int s)
         {
-            Console.WriteLine(BoundryService.RightSideInRange(s, t, b, oranges));
+            return BoundryService.RightSideInRange(s, t, b, oranges);
         }
     }
 }

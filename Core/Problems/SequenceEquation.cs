@@ -4,10 +4,11 @@ namespace Core.Problems
 {
     internal class SequenceEquation : IProblem
     {
-        public void Solve(object input)
+        public object Solve(object input)
         {
             var list = input.ToIntList(' ');
-            PermutationEquation(list).ForEach(l => Console.WriteLine(l));
+
+            return PermutationEquation(list);
         }
 
         public static List<int> PermutationEquation(List<int> p)

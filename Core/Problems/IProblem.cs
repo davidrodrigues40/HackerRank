@@ -2,6 +2,6 @@
 {
     public interface IProblem
     {
-        void Solve(object input);
+        object Solve(object input);
     }
 }

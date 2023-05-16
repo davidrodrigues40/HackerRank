@@ -1,11 +1,10 @@
 ﻿using Core.Helpers;
-using System;
 
 namespace Core.Problems
 {
     public class FindDigits : IProblem
     {
-        public void Solve(object input)
+        public object Solve(object input)
         {
 
             int n = int.Parse((string)input);
@@ -18,7 +17,8 @@ namespace Core.Problems
                 if (c != 0 && n % c == 0)
                     output++;
             }
-            Console.WriteLine(output);
+
+            return output;
         }
     }
 }

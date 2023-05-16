@@ -4,10 +4,10 @@ namespace Core.Problems
 {
     internal class ViralAdvertising : IProblem
     {
-        public void Solve(object input)
+        public object Solve(object input)
         {
             var days = input.ToInt();
-            Console.WriteLine(DoWork(days));
+            return DoWork(days);
         }
 
         public int DoWork(int n)

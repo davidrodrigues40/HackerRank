@@ -1,6 +1,4 @@
 ﻿using Core.Helpers;
-using System;
-using System.Collections.Generic;
 
 namespace Core.Problems
 {
@@ -11,14 +9,14 @@ namespace Core.Problems
         private static List<int> duplicates = new List<int>();
         private static List<int> rowsWithDups = new List<int>();
 
-        public void Solve(object input)
+        public object Solve(object input)
         {
             var p = input.ToStringArray(' ');
 
-            Console.WriteLine(formingMagicSquare(p.ToListOfIntList()));
+            return DoWork(p.ToListOfIntList());
         }
 
-        public static int formingMagicSquare(List<List<int>> s)
+        public static int DoWork(List<List<int>> s)
         {
             int[] costs = { 0, 0, 0, 0, 0, 0, 0, 0 };
             int[][] t = {

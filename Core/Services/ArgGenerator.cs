@@ -1,4 +1,4 @@
-﻿namespace ConsoleApp.Services;
+﻿namespace Core.Services;
 
 public static class ArgGenerator
 {
@@ -6,7 +6,7 @@ public static class ArgGenerator
     {
         string values = problem switch
         {
-            "AppendAndDelete" => "abc def 6",
+            "AppendAndDelete" => "hackerhappy hackerrank 9",
             "ClimbingLeaderBoard" => "[100,90,90,80,75,60] [50,65,77,90,102]",
             "PickingNumbers" => "1,1,2,2,4,4,5,5,5",
             "HurdleRace" => "7,2 5 4 5 2",

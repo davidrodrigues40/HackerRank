@@ -6,14 +6,14 @@ namespace Core.Problems
     {
         private const char _arraySplitter = ',';
 
-        public void Solve(object input)
+        public object Solve(object input)
 
         {
             var arrays = input.ToStringArray(_arraySplitter);
             var character = int.Parse(arrays[0]);
             var heights = arrays[1].ToIntArray_Int(' ');
 
-            Console.WriteLine(Race(character, heights));
+            return Race(character, heights);
         }
 
         public static int Race(int k, IEnumerable<int> height)

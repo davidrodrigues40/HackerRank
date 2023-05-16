@@ -4,16 +4,19 @@ namespace Core.Problems
 {
     internal class SaveThePrisoner : IProblem
     {
-        public void Solve(object input)
+        public object Solve(object input)
         {
             string[]? lines = input.ToString()?.Split('\n');
+            var output = new List<int>();
+
             if (lines != null)
                 for (int i = 0; i < lines.Length; i++)
                 {
                     var (n, m, s) = lines[i].ToInt_Int_Int(' ');
-
-                    Console.WriteLine(DoWork(n, m, s));
+                    output.Add(DoWork(n, m, s));
                 }
+
+            return output;
         }
 
         /// <summary>

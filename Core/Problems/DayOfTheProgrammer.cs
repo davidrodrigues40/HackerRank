@@ -1,24 +1,22 @@
 ﻿using Core.Helpers;
-using System;
 using System.Globalization;
-using System.Linq;
 
 namespace Core.Problems
 {
     public class DayOfTheProgrammer : IProblem
     {
-        public void Solve(object input)
+        public object Solve(object input)
         {
             var year = input.ToInt();
-            Console.WriteLine(dayOfProgrammer(year));
+            return DayOfProgrammer(year);
         }
 
-        static string dayOfProgrammer(int year)
+        static string DayOfProgrammer(int year)
         {
-            return calculateDayOfYear(year);
+            return CalculateDayOfYear(year);
         }
 
-        static string calculateDayOfYear(int year)
+        static string CalculateDayOfYear(int year)
         {
             var offYears1700 = new[] { 1711, 1737, 1741, 1758, 1783 };
             if (year <= 1917)

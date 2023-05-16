@@ -1,47 +1,50 @@
 ﻿using Core.Helpers;
-using System;
 
 namespace Core.Problems
 {
     public class CatsAndAMouse : IProblem
     {
-        public void Solve(object input)
+        public object Solve(object input)
         {
             var p = input.ToStringArray(' ');
             var list = p.ToListOfIntArrays();
 
+            var output = new List<object>();
+
             foreach (var item in list)
             {
-                Console.WriteLine(catAndMouse(item[0], item[1], item[2]));
+                output.Add(CatAndMouse(item[0], item[1], item[2]));
             }
+
+            return output;
         }
 
-        static string catAndMouse(int x, int y, int z)
+        static string CatAndMouse(int x, int y, int z)
         {
-            var catASteps = determineSteps(x, z);
-            var catBSteps = determineSteps(y, z);
+            var catASteps = DetermineSteps(x, z);
+            var catBSteps = DetermineSteps(y, z);
 
             if (catASteps == catBSteps) return "Mouse C";
 
             return catASteps > catBSteps ? "Cat B" : "Cat A";
         }
 
-        static int determineSteps(int cat, int mouse)
+        static int DetermineSteps(int cat, int mouse)
         {
             if (cat > mouse)
-                return stepsBack(cat, mouse);
+                return StepsBack(cat, mouse);
             if (mouse > cat)
-                return stepsForward(cat, mouse);
+                return StepsForward(cat, mouse);
 
             return 0;
         }
 
-        static int stepsForward(int cat, int mouse)
+        static int StepsForward(int cat, int mouse)
         {
             return mouse - cat;
         }
 
-        static int stepsBack(int cat, int mouse)
+        static int StepsBack(int cat, int mouse)
         {
             return cat - mouse;
         }

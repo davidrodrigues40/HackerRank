@@ -4,14 +4,17 @@ namespace Core.Problems
 {
     internal class UtopianTree : IProblem
     {
-        public void Solve(object input)
+        public object Solve(object input)
         {
             var cycles = input.ToIntArray_Int(' ');
+            var output = new List<int>();
 
             foreach (var cycle in cycles)
             {
-                Console.WriteLine(DoWork(cycle));
+                output.Add(DoWork(cycle));
             }
+
+            return output;
         }
 
         private static int DoWork(int n)

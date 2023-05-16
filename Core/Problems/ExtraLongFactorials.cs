@@ -1,13 +1,15 @@
-﻿using System;
-using System.Numerics;
+﻿using System.Numerics;
 
 namespace Core.Problems
 {
     public class ExtraLongFactorials : IProblem
     {
-        public void Solve(object input)
+        public object Solve(object input)
         {
-            int n = int.Parse(input.ToString());
+            var inputStr = input.ToString();
+            if (inputStr == null) return 0;
+
+            int n = int.Parse(inputStr);
             BigInteger output = n;
             do
             {
@@ -15,7 +17,8 @@ namespace Core.Problems
                 output *= n;
             }
             while (n > 1);
-            Console.WriteLine(output);
+
+            return output;
         }
     }
 }

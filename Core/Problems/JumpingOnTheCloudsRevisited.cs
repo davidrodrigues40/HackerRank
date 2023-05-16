@@ -5,10 +5,10 @@ namespace Core.Problems
 {
     internal class JumpingOnTheCloudsRevisited : IProblem
     {
-        public void Solve(object input)
+        public object Solve(object input)
         {
             (int[] clouds, int k) = input.ToIntArray_Int(',', ' ');
-            Console.WriteLine(JumpingOnClouds(clouds, k));
+            return JumpingOnClouds(clouds, k);
         }
 
         /// <summary>

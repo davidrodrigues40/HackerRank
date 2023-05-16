@@ -1,17 +1,19 @@
 ﻿using Core.Helpers;
-using System;
-using System.Linq;
 
 namespace Core.Problems
 {
     public class BirthdayCakeCandles : IProblem
     {
-        public void Solve(object input)
+        public object Solve(object input)
         {
-            var strArray = input.ToString().Split(' ');
+            var strValue = input.ToString();
+            var strArray = strValue?.Split(' ');
+
+            if (strArray == null || strArray.Length == 0) return 0;
+
             var arr = strArray.Select(int.Parse).ToArray();
 
-            Console.WriteLine(arr.CountMax());
+            return arr.CountMax();
         }
     }
 }

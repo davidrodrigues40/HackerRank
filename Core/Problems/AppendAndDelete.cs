@@ -1,83 +1,59 @@
-﻿using System;
+﻿using Core.Helpers;
 
 namespace Core.Problems
 {
     public class AppendAndDelete : IProblem
     {
-        public void Solve(object input)
+        public object Solve(object input)
         {
-            var n = (string)input;
-            var arr = n.Split(' ');
-            var s = arr[0];
-            var t = arr[1];
-            var k = int.Parse(arr[2]);
+            var (s, t, k) = input.ToString_String_Int(' ');
 
-            Console.WriteLine(GenerateOutput(s, t, k));
+            return GenerateOutput(s, t, k);
 
         }
 
-        private string GenerateOutput(string s, string t, int k)
+        private static string GenerateOutput(string s, string t, int k)
         {
-            int count = 0;
-            int a = s.Length - t.Length;
-            var arr = new[] { s, t };
+            var steps = 0;
 
             if (s.Length > t.Length)
-            {
-                count += PerformFunction(s, t);
-            }
-            else if (t.Length > s.Length)
-            {
-                count += PerformFunction(t, s);
-            }
+                steps = PerformFunction(s, t, k);
             else
-            {
-                count = PerformFunction(s, t, k);
-            }
+                steps = PerformEqualFunction(s, t, k);
 
-            if ((k - count) % 2 == 0)
-                count = k;
-
-            return k == count ? "Yes" : "No";
-            //return count == k ? "Yes" : "No";
+            return steps == k ? "Yes" : "No";
         }
 
-        private int PerformFunction(string s, string t, int k)
+        private static int PerformFunction(string longest, string shortest, int k)
         {
-            var count = s.Length * 2;
-            if (count % 2 == 0)
-            {
-                count = k;
-            }
+            if (longest.StartsWith(shortest)) return StartsWith(longest, shortest, k);
 
-            return count;
+            var intersection = longest.Intersect(shortest);
+
+            var delete = longest.Length - intersection.Count();
+
+            var additions = shortest.Length - intersection.Count();
+
+            var total = delete + additions;
+
+            return (total % 2 == k % 2 ? k : total);
         }
 
-        private int PerformFunction(string longest, string shortest)
+
+        private static int PerformEqualFunction(string s, string t, int k)
         {
-            int count = 0;
-            for (var x = longest.Length - 1; x >= 0; x--)
-            {
-                count++;
-                longest = longest.Substring(0, x);
-                if (shortest.Length >= x && longest == shortest.Substring(0, x))
-                {
-                    count += Rebuild(longest, shortest);
-                    break;
-                }
-            }
-            return count;
+            if (s.Length != t.Length || s != t) return PerformFunction(t, s, k);
+
+            if ((s.Length + t.Length) % 2 == k % 2) return k;
+
+            return (s.Length * 2) + 1;
         }
 
-        private int Rebuild(string s, string t)
+        private static int StartsWith(string longest, string shortest, int k)
         {
-            int count = 0;
-
-            var appendix = t.Substring(s.Length);
-            // append
-            count += appendix.Length;
-
-            return count;
+            var steps = longest.Length - shortest.Length;
+            if (steps % 2 == k % 2) return k;
+            return steps;
         }
     }
 }

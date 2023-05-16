@@ -1,17 +1,15 @@
 ﻿using Core.Helpers;
 using System.Collections.Immutable;
-using System.Diagnostics;
 
 namespace Core.Problems
 {
     public class ClimbingLeaderBoard : IProblem
     {
         private const char _arraySplitter = ' ';
-        private Stopwatch? _stopwatch;
         private static ImmutableSortedSet<int>? _currentRanks;
 
 
-        public void Solve(object input)
+        public object Solve(object input)
         {
             var arrays = input.ToStringArray(_arraySplitter);
             var lists = arrays.ToListOfIntArrays();
@@ -19,11 +17,9 @@ namespace Core.Problems
             var player = lists[1];
             IEnumerable<int> scores;
 
-            _stopwatch = Stopwatch.StartNew();
             scores = GetRankings(ranked.ToList(), player.ToList());
-            Console.WriteLine(String.Join("\n", scores));
-            _stopwatch.Stop();
-            Console.WriteLine($"New Way: {_stopwatch.Elapsed.TotalMilliseconds}ms");
+
+            return string.Join("\n", scores);
 
         }
 

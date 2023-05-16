@@ -68,6 +68,12 @@
             return output;
         }
 
+        public static (string string1, string string2, int integer) ToString_String_Int(this object input, char splitter)
+        {
+            var items = input.ToStringArray(splitter);
+            return (items[0], items[1], int.Parse(items[2]));
+        }
+
         public static (int[] arr1, int[] arr2, int integer) ToIntArray_IntArray_Int(this string[] input)
         {
             var arr1 = input[0].ToIntArray();

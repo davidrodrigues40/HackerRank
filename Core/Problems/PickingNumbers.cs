@@ -1,17 +1,14 @@
 ﻿using Core.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Core.Problems
 {
     public class PickingNumbers : IProblem
     {
-        public void Solve(object input)
+        public object Solve(object input)
         {
             var p = input.ToIntList(',');
 
-            Console.WriteLine(PickNumbers(p));
+            return PickNumbers(p);
         }
 
         public static int PickNumbers(List<int> a)

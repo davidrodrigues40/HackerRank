@@ -1,18 +1,17 @@
-﻿using System;
-using static Core.Helpers.Splitter;
+﻿using static Core.Helpers.Splitter;
 
 namespace Core.Problems
 {
     public class CountingValleys : IProblem
     {
-        public void Solve(object input)
+        public object Solve(object input)
         {
             string[] p = input.ToStringArray(' ');
             (int steps, string path) = p.ToInt_String();
 
-            Console.WriteLine(countingValleys(steps, path));
+            return Count(steps, path);
         }
-        public static int countingValleys(int steps, string path)
+        public static int Count(int steps, string path)
         {
             int elevation = 0;
             int valleys = 0;
