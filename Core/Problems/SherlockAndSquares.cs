@@ -14,9 +14,9 @@ namespace Core.Problems
         private static int DoWork(int a, int b)
         {
             var lower = Math.Ceiling(Math.Sqrt(a));
-            var upper = Math.Ceiling(Math.Sqrt(b));
+            var upper = Math.Floor(Math.Sqrt(b));
 
-            return (int)(upper - lower);
+            return (int)(upper - lower + 1);
 
         }
     }
