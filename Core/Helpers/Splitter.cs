@@ -116,6 +116,16 @@
             return (integer, intArray);
         }
 
+        public static (int[] array1, int[] array2) ToIntArray_IntArray(this object input, char arraySplitter, char intSplitter)
+        {
+            var arrs = input.ToStringArray(arraySplitter);
+            var arr1 = arrs[0].ToIntArray(intSplitter);
+            var arr2 = arrs[1].ToIntArray(intSplitter);
+
+            return (arr1, arr2);
+
+        }
+
         public static (int[], int) ToIntArray_Int(this object input, char arraySplitter, char intSplitter)
         {
             var arrs = input.ToStringArray(arraySplitter);

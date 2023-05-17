@@ -40,6 +40,12 @@ namespace Core.Helpers
             return Array.Empty<int>();
         }
 
+        public static int[] ToIntArray(this string input, char splitter)
+        {
+            var arr = input.Split(splitter);
+            return arr.Select(int.Parse).ToArray();
+        }
+
         public static List<int> ToIntList(this object input, char separator)
         {
             var strArray = input.ToStringList(separator);
